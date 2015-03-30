@@ -1,6 +1,6 @@
-%% —----------------------------------------------------------------------
+%% ----------------------------------------------------------------------
 %%                                Rules
-%% —----------------------------------------------------------------------
+%% ----------------------------------------------------------------------
 
 
 %%1.
@@ -33,7 +33,7 @@ ancestor(Ancestor, Descendant):- superstate(Ancestor, Descendant); superstate(An
 
 %%8. 
 
-inheritss_transitions(State, List) :- findall(transition(Super, _,_,_,_); transition(_,Super,_,_,_,_), superstate(Super, State), List).  
+inheritss_transitions(State, List) :- findall(transition(Super, Destination,Event,Guard,Actions), superstate(Super, State), L1),findall(transition(Source, Super,Event1,Guard1, Actions1), superstate(Super, State), L2), append(L1, L2, List).  
 
 %%9. 
 
@@ -46,7 +46,6 @@ all_init_states(L):- findall(State, initial(State,_), L).
 %%11. 
 
 get_starting_state(State):- initial(State, null). 
-%%get_starting_state(State):- superstate(Super, State), initial_state(Super, _). 
 
 %%12.
 
