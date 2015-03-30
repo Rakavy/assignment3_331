@@ -51,7 +51,7 @@ get_starting_state(State):- initial(State, null).
 
 %12.
 
-state_is_reflexive(State):- transition(State, State, _, _, _).
+state_is_reflexive(State):- state(State), transition(State, State, _, _, _).
 
 %13.
 
