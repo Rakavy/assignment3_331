@@ -122,7 +122,7 @@ transition(‘safe_status’, exit,null, null , null).
 transition(‘error_rcv’,‘applicable_rescue’, null, ‘err_protocol_def’, ‘null).
 transition(‘error_rcv’,‘reset_module_data’, null, ‘!err_protocol_def’, ‘null).
 transition(‘applicable_rescue’,exit, ‘apply_protocol_rescue’, null, ‘null).
-transition(‘reset_module_data’,exit, ‘exit_to_stable’, null, ‘null).
+transition(‘reset_module_data’,exit, ‘reset_to_stable’, null, ‘null).
 
 
 
